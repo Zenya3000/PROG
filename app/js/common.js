@@ -1,106 +1,78 @@
 
-
-//  var memory;
-//  var price;
-//  var img
+	// Пользовательские функции
 
 
-// var test_size = [
-
-// {
-// 	"size" : 32,
-// 	"price" : 600
-// },
-// {
-// 	"size" : 64,
-// 	"price" : 700
-// },
-// {
-// 	"size" : 128,
-// 	"price" : 900
-// },
-// {
-// 	"size" : 256,
-// 	"price" : 1200
-// }
-// ];
-
-// var test_color = [
-// {
-// 	"color" : 'black',
-// 	"k" : 1.1,
-// 	"img" : '<img style="width: 200px;" src="img/black.png">'
-// },
-// {
-// 	"color" : 'silver',
-// 	"k" : 1,
-// 	"img" : '<img style="width: 200px;" src="img/silver.png">'
-// },
-// {
-// 	"color" : 'red',
-// 	"k" : 1.07,
-// 	"img" : '<img style="width: 200px;" src="img/red.png">'
-// }
-// ];
-
-// x = true;
-// y = true;
-// while(x){
-// 	a = prompt("Сколько памяти?");
-// 	if(a == null){
-// 		alert("Ну ок (((");
-// 		x = false;
-// 		y = false;
-// 		break;
-// 	};
-
-// 	for (var i = 0; i < test_size.length; i++) {
-
-// 		if (+a == test_size[i].size) {
-// 			memory = +test_size[i].size;
-// 			price = +test_size[i].price;
-// 			x = false;
-// 			break;
-// 		}
+// var take = function(fn, n){
+// 	var res = [];	
+// 	for (var i = 0; i < n; i++) {
+// 		res.push( fn() );
 // 	}
+// 	return res;
+// }
+
+
+// var sequence  = function(start, step){
+// 	var start;
+// 	var step;
+// 	if(start === undefined){
+// 		var start = 0;
+// 	} else {
+// 		var start = start;
+// 	}
+
+// 	if(step === undefined){
+// 		var step = 0;
+// 	}else {
+// 		var step = step;
 	
+// 	}
+
+// 	if( start && step){
+// 		start -= step;
+// 	}
+// 	return function(){
+		
+// 		return start += step;
+// 	}
 // };
 
+// var generator = sequence(10, 5);
+// var generator2 = sequence(16, 7);
 
 
-// while(y){
-// 	a = prompt("Какой цвет?");
-// 	if ( a == null) {
-// 		alert("Ты был близок...");
-// 		y = false;
-// 		break;
-// 	}
-// 	for (var i = 0; i < test_color.length; i++) {
-// 		if (a == test_color[i].color) {
-// 			price = price * +test_color[i].k;
-// 			img = test_color[i].img;
-// 			y = false;
-// 			break;
-// 		}
-// 	}
-// }
+// console.log(take(generator, 10));
+// console.log(take(generator2, 20));
 
-// if( memory == null && price == null && img == null) {
-// 	memory = 0;
-// 	price = 0;
-// 	img = 'no image';
-// }
+	
+	
 
 
-var test = ['toyota', 2, 'mazda', 4, 'lexus', 6];
-console.log(test);
+var characters = [
+	{'name': 'joey', 'age' : 46},
+	{'name': 'monika', 'age' : 43},
+	{'name': 'ross', 'age' : 35},
+	{'name': 'rachel', 'age' : 48},
+	{'name': 'chandler', 'age' : 41}
+];
 
-var test_new = test.splice(1,2);
+// console.log(characters);
 
-console.log(test_new);
-console.log(test);
-test.push("bla", 123131);
-console.log(test);
-// document.write('<h2>Цена: '+ price + '$</h2><h4>Память: '+ memory + '</h4>' + img);
+	// var res = [];
+	// for (var i = 0; i < characters.length; i++) {
+	// 	var a = characters[i].name;
+	// 	res.push(a);
+		
+	// }
 
+function test(array){
+	var res = [];
+	for (var i = 0; i < characters.length; i++) {
+		var a = characters[i].name;
+		res.push(a);	
+
+	};
+	return res;
+};
+console.log(test(characters));
+// console.log(res);
 
