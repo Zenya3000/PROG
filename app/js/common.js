@@ -1,6 +1,7 @@
 
 	// Пользовательские функции
 
+// lesson 3;
 
 // var take = function(fn, n){
 // 	var res = [];	
@@ -47,32 +48,43 @@
 	
 
 
-var characters = [
-	{'name': 'joey', 'age' : 46},
-	{'name': 'monika', 'age' : 43},
-	{'name': 'ross', 'age' : 35},
-	{'name': 'rachel', 'age' : 48},
-	{'name': 'chandler', 'age' : 41}
-];
+// var characters = [
+// 	{'name': 'joey', 'age' : 46},
+// 	{'name': 'monika', 'age' : 43},
+// 	{'name': 'ross', 'age' : 35},
+// 	{'name': 'rachel', 'age' : 48},
+// 	{'name': 'chandler', 'age' : 41}
+// ];
 
-// console.log(characters);
 
-	// var res = [];
-	// for (var i = 0; i < characters.length; i++) {
-	// 	var a = characters[i].name;
-	// 	res.push(a);
-		
-	// }
+// function test(array, key){
+// 	var res = [];
+// 	for (var i = 0; i < characters.length; i++) {
+// 		var a = array[i][key];
+// 		res.push(a);	
 
-function test(array){
-	var res = [];
-	for (var i = 0; i < characters.length; i++) {
-		var a = characters[i].name;
-		res.push(a);	
+// 	};
+// 	return res;
+// };
+// console.log(test(characters, 'name'));
 
-	};
+// lesson 4;
+
+var arr = [3,4,5,6,7,8];
+var f1 = function(x){
+	return x * 2;
+}
+
+var map = function(fn, arr){
+	res = [];
+	for (var i = 0; i < arr.length; i++) {
+		res.push( fn(arr[i]));
+	}
+
 	return res;
 };
-console.log(test(characters));
-// console.log(res);
+
+
+console.log( map(f1, arr));
+
 
