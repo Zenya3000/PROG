@@ -112,112 +112,380 @@
 
 // console.log(animal(animal.run(5), animal.stop()));
 
-var findInArr = function(arr, val){
-	for (var i = 0; i <= arr.length; i++) {
-		if( arr[i] === val) {
-			return i;
-		}
-	return -1;
-	}
-}
+// var findInArr = function(arr, val){
+// 	for (var i = 0; i <= arr.length; i++) {
+// 		if( arr[i] === val) {
+// 			return i;
+// 		}
+// 	return -1;
+// 	}
+// }
 
-function Hamburger(size, stuffing) {
-	this._size = size;
-	this._stuffing = stuffing;
-	this._toppings = [];
-}
-
-
-
-	Hamburger.SIZE_SMALL = {
-		name: 'Small',
-		price: 50,
-		cal: 35
-	};
-	Hamburger.SIZE_LARGE = {
-		name: 'Large',
-		price: 60,
-		cal: 45
-	};
-	Hamburger.STUFFING_CHEESE = {
-		name: 'Cheese',
-		price: 10,
-		cal: 14
-	}
-	Hamburger.STUFFING_SALAD = {
-		name: 'Salad',
-		price: 8,
-		cal: 5
-	}
-	Hamburger.STUFFING_POTATO = {
-		name: 'Potato',
-		price: 8,
-		cal: 10
-	}
-	Hamburger.TOPPING_MAYO = {
-		name: 'Mayo',
-		price: 5,
-		cal: 171
-	}
-	Hamburger.TOPPING_SPICE = {
-		name: 'Spice',
-		price: 5,
-		cal: 2
-	}
-
-    Hamburger.prototype.addTopping = function (topping) {
-        var founded = findInArr(this._toppings, topping);
-        if(founded !== -1){
-            alert('Такой топпинг уже есть');
-        }else{
-            this._toppings.push(topping);
-        }
-    };
-
-	Hamburger.prototype.removeToping = function(topping){
-		var founded = findInArr(this._toppings, topping);
-		if(founded !== -1){
-			alert('Такой добавки нет');
-		} else {
-			this._toppings.splice(founded, 1);
-		}
-	};
-
-    Hamburger.prototype.getPrice = function () {
-        var price = this._size.price + this._stuffing.price;
-        for (var i = 0; i < this._toppings.length; i++) {
-            price += this._toppings[i].price;
-        }
-        return price;
-    };
-    Hamburger.prototype.getCalories = function () {
-        var price = this._size.cal + this._stuffing.cal;
-        for (var i = 0; i < this._toppings.length; i++) {
-            price += this._toppings[i].cal;
-        }
-        return price;
-    };
+// function Hamburger(size, stuffing) {
+// 	this._size = size;
+// 	this._stuffing = stuffing;
+// 	this._toppings = [];
+// }
 
 
 
-var hamburger1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
+// 	Hamburger.SIZE_SMALL = {
+// 		name: 'Small',
+// 		price: 50,
+// 		cal: 35
+// 	};
+// 	Hamburger.SIZE_LARGE = {
+// 		name: 'Large',
+// 		price: 60,
+// 		cal: 45
+// 	};
+// 	Hamburger.STUFFING_CHEESE = {
+// 		name: 'Cheese',
+// 		price: 10,
+// 		cal: 14
+// 	}
+// 	Hamburger.STUFFING_SALAD = {
+// 		name: 'Salad',
+// 		price: 8,
+// 		cal: 5
+// 	}
+// 	Hamburger.STUFFING_POTATO = {
+// 		name: 'Potato',
+// 		price: 8,
+// 		cal: 10
+// 	}
+// 	Hamburger.TOPPING_MAYO = {
+// 		name: 'Mayo',
+// 		price: 5,
+// 		cal: 171
+// 	}
+// 	Hamburger.TOPPING_SPICE = {
+// 		name: 'Spice',
+// 		price: 5,
+// 		cal: 2
+// 	}
+
+//     Hamburger.prototype.addTopping = function (topping) {
+//         var founded = findInArr(this._toppings, topping);
+//         if(founded !== -1){
+//             alert('Такой топпинг уже есть');
+//         }else{
+//             this._toppings.push(topping);
+//         }
+//     };
+
+// 	Hamburger.prototype.removeToping = function(topping){
+// 		var founded = findInArr(this._toppings, topping);
+// 		if(founded !== -1){
+// 			alert('Такой добавки нет');
+// 		} else {
+// 			this._toppings.splice(founded, 1);
+// 		}
+// 	};
+
+//     Hamburger.prototype.getPrice = function () {
+//         var price = this._size.price + this._stuffing.price;
+//         for (var i = 0; i < this._toppings.length; i++) {
+//             price += this._toppings[i].price;
+//         }
+//         return price;
+//     };
+//     Hamburger.prototype.getCalories = function () {
+//         var price = this._size.cal + this._stuffing.cal;
+//         for (var i = 0; i < this._toppings.length; i++) {
+//             price += this._toppings[i].cal;
+//         }
+//         return price;
+//     };
+
+
+
+// var hamburger1 = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
+// hamburger1.addTopping( Hamburger.TOPPING_MAYO );
 // console.log(hamburger1.getPrice());
-hamburger1.addTopping( Hamburger.TOPPING_MAYO );
-console.log(hamburger1.getPrice());
-console.log(hamburger1.getCalories());
+// console.log(hamburger1.getCalories());
 
 
 
-var Calc = function(x, y){
-	this.numFirst = x,
-	this.numSecond = y
-};
+// var Calc = function(x, y){
+// 	this.numFirst = x,
+// 	this.numSecond = y
+// };
 
-Calc.prototype.sum = function() {
-	return this.numFirst + this.numSecond;
-};
+// Calc.prototype.sum = function() {
+// 	return this.numFirst + this.numSecond;
+// };
 
-var test = new Calc(10, 20);
-console.log(test.sum());
+// var test = new Calc(10, 20);
+// console.log(test.sum());
 
 // hamburger1.addTopping( Hamburger.TOPPING_MAYO );
+
+
+
+
+
+//HW 5
+var main = document.getElementsByClassName('main');
+var main_content = document.getElementsByClassName('content');
+// main[0].getElementsByClassName("arrow")[0].className += " active";
+
+if(main.length == main_content.length){
+	for (var i = 0; i < main.length; i++) {
+		main[i].setAttribute('name', i);
+		main[i].setAttribute('status', '');
+		// main_content[i].setAttribute('name', i);
+
+	}
+}
+
+function checkActive() {
+
+	var main = document.querySelectorAll('.main');
+	for (var i = 0; i < main.length; i++) {
+		var item = main[i];
+		if( $(item).hasClass('active')){
+			$(item).find('content').slideDown(300);
+			item.setAttribute('status', 'open');
+		} else {
+			item.setAttribute('status', 'closed');
+		}
+
+		
+	}
+	
+
+	
+}
+
+checkActive();
+
+
+//create arrow next to main class;
+
+var arrow = document.querySelectorAll('.main');
+
+for (var i = 0; i < arrow.length; i++) {
+	var num = arrow[i].attributes.name.nodeValue;
+	// console.log(arrow[num]);
+	if($(arrow[num]).children().hasClass('content')){
+		$(arrow[num]).append('<span class="arrow "><i class="fas fa-chevron-right"></i></span>');
+	};
+}
+
+
+//show content
+
+var main = document.querySelectorAll('.main');
+for (var i = 0; i < main.length; i++) {
+	main[i].onclick = function(){
+	var check = true;
+
+		var bla = this.attributes.name.nodeValue;
+		// alert(bla);
+		//close main class with content clildren
+		if(this.attributes.status.nodeValue == 'open' && $(this).children().hasClass('content')){
+			$(this).children('.content').slideUp(300);
+			console.log($(this).children());
+			this.attributes.status.nodeValue = 'closed';
+			setTimeout(function(){
+				$(main[bla]).removeClass('active');
+
+			}, 300);
+			return false;
+		} else {
+			console.log('close main class with content clildren, FALSE');
+		}
+		if(this.attributes.status.nodeValue == 'closed' && $(this).children().hasClass('content')){
+			$(this).children('.content').slideDown(300);
+			this.attributes.status.nodeValue = 'open';
+			setTimeout(function(){
+				$(main[bla]).addClass('active');
+
+			}, 300);
+			return false;
+		} else {
+			console.log('fail ((( open');
+		}
+
+
+
+
+	}
+};
+
+
+
+
+//version 2
+
+// $(document).on('click', '.main li > a', function(event){
+// 	var $this = $(this);
+// 	var $next = $this.next();
+// 	if($next.length){
+// 		$next.slideToggle().parent().siblings().children('ul').filter(':visible').slideToggle();
+// 		event.preventDefault();
+// 	}
+
+
+// });
+
+// ---- end version 2
+
+
+
+
+
+
+
+
+		// if( check == true && $(this).hasClass('active')){
+		// 	$(this).removeClass('active');
+		// 	$(this).children('content').slideUp(300);
+	
+		// 	check = false;
+		// 	console.log('close', check);
+		// 	console.log(bla);
+		// 	return false;
+		// } else
+		// if( check == true && !$(this).hasClass('active') ){
+		// 	$(this).children().find('content').slideDown(300);	
+		// 	$(this).addClass('active');
+		
+		// 	check = true;
+		// 	console.log('open', check);
+		// 	console.log(bla);
+		// 	return false;
+		// } else
+		
+		// // if(check = false && $(this).parent('content') ){
+		// {
+			
+		// 	$(this).children().find('content').slideUp(300);
+		// 	$(this).removeClass('active');
+		// 	check = true;
+		// 	console.log('last', check);
+		// 	console.log(bla);
+		// 	return false;	
+		// };
+
+// 	}
+// };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// var show = document.getElementsByClassName('main');
+
+// for (var i = 0; i < show.length; i++) {
+
+// 	show[i].onclick = function(){
+// 	var children = this.childNodes;
+
+
+// 		if($(children).hasClass('content') && !$(children).parent().hasClass('active')) {
+// 			$(children).slideDown(300);
+// 			$(children).parent().addClass('active');
+			
+// 			console.log('add');
+// 		} else if($(children).hasClass('content') && $(children).parent().hasClass('active') ){
+
+// 			console.log('remove');
+// 			$(children).slideUp(300);
+// 			$(children).parent().removeClass('active');
+// 		} else {
+// 			console.log('proval');
+// 		}
+
+
+// 	}
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+	// tops[i].onclick = function(){
+
+
+		// var x = this.attributes.name.nodeValue;
+		// if( tops[x].classList.contains('active')){
+		// 	console.log(tops[x]);
+		// 	tops[x].find('.content').slideDown(300);
+
+			// console.log(main);
+				// var tops[x].before('<span class="arrow "><i class="fas fa-chevron-right"></i></span>');
+				
+
+
+			// if(tops[x].getElementsByClassName('content')){
+			// 	tops[x].slideDown(300);
+			// } else {
+			// 	tops[x].slideUp(300);
+			// }
+
+		// console.log(tops[x].className);
+
+
+
+
+
+
+
+
+		
+		// if( !$(this).hasClass('active') ){
+		// 	console.log('open');
+		// 	$(this).addClass('active');
+		// 	$(this).firstChild.nodeName()
+		// 	$(this).find('.content').slideDown(300);
+		// } else if($(this).hasClass('active')){
+		// 	console.log('go child');
+		// 	console.log($(this).find('.content'));
+		// 	if($(this).find('.main').find('.content')) {
+		// 		$(this).removeClass('active');
+		// 		$(this).slideDown(300);
+		// 		console.log('finish_child');
+		// 	} else {
+		// 		$(this).removeClass('active');
+		// 		$(this).find('.content').slideUp(300);		
+		// 		console.log('close_child');		
+		// 	}
+		// }
+		// else {
+		// 	console.log('close');
+		// 	$(this).removeClass('active');
+		// 	$(this).find('.content').slideUp(300);
+		// }	
+
+
+	// } for
+
+
