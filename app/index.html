@@ -34,6 +34,29 @@
 
 	<div class="container">
 
+		<div class="otstup">
+			<h1>Заметочник</h1>
+
+			<div class="row add-note">
+				<div class="">
+				  <form class="add-note__form" id="addNote">
+				    <textarea rows="5" class="add-note__ta"></textarea>
+				    <div class="add-note__form-footer">
+				      <div class="colors" id="colors">
+				      	
+				      </div>
+				      <button type="submit" class="add-note__btn" id="add-note__btn">Add note</button>
+				    </div>
+				  </form>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="notes" id="notes"></div>
+			</div>
+
+		</div>
+
 		<div class="row">
 		<h1>Accordion</h1>
 			<div class="accordeon">
@@ -108,7 +131,10 @@
 	<link rel="stylesheet" href="css/main.min.css">
 
 	<script src="js/scripts.min.js"></script>
-
+	<script src="js/addNote.js"></script>
+	<script src="js/notes.js"></script>
+	<script src="js/colors.js"></script>
+	<script src="js/app.js"></script>
 
 </body>
 </html>
