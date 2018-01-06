@@ -1,11 +1,28 @@
-var notes = function () {
+var Notes = (function () {
+	var n = {
+		container: "#notes",
+		zametka: "zametka",
+		chosenColor: ""
+	}
 
-	var news = document.getElementById("notes");
-	$("#add-note__btn").on("notes", function(event, val){
-		var div = document.createElement('div');
-		div.className+= 'zametka';
-		div.innerHTML = val;
-		news.appendChild(div);
-		// news.append("<div class="+'news'+">"+ val + "</div>");
-	});
-}
+	return {
+		render: function(){
+			var chosenColor = Colors.getColor().defaultColor;
+			
+			$(window).on("addNote", function(event, note){
+				$(n.container).append('<div class="'+ n.zametka +' '+ note.color +'" data-number="'+note.number+'"><button class="close" data-number="'+note.number+'">x</button>'+ note.text + ' </div>');
+			});
+		},
+		remove: function(){
+			$(window).on("toRemove", function(event, toRemove){
+				$(n.container).find('.zametka[data-number="'+toRemove.number+'"]').remove();
+			})
+		},
+		init: function(){
+			this.render();
+			this.remove();
+
+		}
+	}
+
+}())

@@ -189,7 +189,8 @@ body
 #addNote
 
 	padding: 20px
-	background-color: #ffecec
+	border: 1px solid #d7d6d6
+	border-bottom: none
 	textarea
 		width: 100%
 		position: relative
@@ -205,32 +206,42 @@ body
 		width: 23px
 		height: 23px
 		background-color: #f46363
-		display: block
-	&.gold
-		background-color: #ffd357
+		display: inline-block
+		margin-right: 10px
+		&.gold
+			background-color: #ffd357
 
-	&.green
-		background-color: #84bb47
-	&.blue
-		background-color: #64d6ac
+		&.green
+			background-color: #84bb47
+		&.blue
+			background-color: #64d6ac
+		&.red
+			background-color: #f06c6c
+		&.colors__item--isActive
+			border: 1px solid black
+		&:hover
+			cursor: pointer
 
 
 #notes
 	height: auto
 	min-height: 100px
-	background-color: #f4f4f4
+	background-color: white
 	display: flex
 	flex-wrap: wrap
 	justify-content: center
 	padding: 20px
+	border: 1px solid #d7d6d6
 
 .zametka
-	padding: 6px 20px
+	padding: 12px 30px
 	justify-content: space-between
 	height: 100%
 	min-height: 20px
 	background-color: #dfffff
 	margin: 10px 10px
+	position: relative
+	
 	&.gold
 		background-color: #ffd357
 
@@ -238,5 +249,16 @@ body
 		background-color: #84bb47
 	&.blue
 		background-color: #64d6ac
+	&.red
+		background-color: #f06c6c
+	.close
+		position: absolute
+		background: none
+		border: none
+		right: 1px
+		top: 1px
+		color: white
+		padding: 0
+		width: 20px
 
 @import "media" // Всегда в конце
