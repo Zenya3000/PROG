@@ -235,12 +235,17 @@ body
 
 .zametka
 	padding: 12px 30px
-	justify-content: space-between
+
+	
 	height: 100%
-	min-height: 20px
+	min-height: 60px
 	background-color: #dfffff
 	margin: 10px 10px
 	position: relative
+	display: flex
+	justify-content: center
+	align-items: center
+	min-width: 150px
 	
 	&.gold
 		background-color: #ffd357
@@ -260,5 +265,10 @@ body
 		color: white
 		padding: 0
 		width: 20px
+	i
+		position: absolute
+		bottom: 1px
+		right: 1px
+
 
 @import "media" // Всегда в конце

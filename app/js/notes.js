@@ -4,13 +4,19 @@ var Notes = (function () {
 		zametka: "zametka",
 		chosenColor: ""
 	}
-
+	function z_split(text){
+		res = "";
+		for (var i = 0; i < text.length; i++) {
+			res += text[i] + '<br>';
+		}
+		return res;
+	}
 	return {
 		render: function(){
 			var chosenColor = Colors.getColor().defaultColor;
 			
 			$(window).on("addNote", function(event, note){
-				$(n.container).append('<div class="'+ n.zametka +' '+ note.color +'" data-number="'+note.number+'"><button class="close" data-number="'+note.number+'">x</button>'+ note.text + ' </div>');
+				$(n.container).append('<div class="'+ n.zametka +' '+ note.color +'" data-number="'+note.number+'"><button class="close" data-number="'+note.number+'">x</button>'+ z_split(note.split_text) + ' <i class="fa fa-pencil" aria-hidden="true"></i> </div>');
 			});
 		},
 		remove: function(){

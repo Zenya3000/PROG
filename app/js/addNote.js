@@ -15,12 +15,14 @@ var AddNote = (function () {
 			$(s.form).submit(function(e){
 				e.preventDefault();
 				var text = $(s.form).find(s.field).val();
+				split_text = text.split("\n");
 				
 				if(text){
 					var note = {
 						text: $(s.form).find(s.field).val(),
 						color: chosenColor,
-						number: number
+						number: number,
+						split_text: split_text
 					}
 					$(window).trigger("addNote", note);
 					number++;
