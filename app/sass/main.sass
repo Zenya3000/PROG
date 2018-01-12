@@ -234,41 +234,71 @@ body
 	border: 1px solid #d7d6d6
 
 .zametka
-	padding: 12px 30px
-
-	
+	padding: 20px 30px
 	height: 100%
 	min-height: 60px
-	background-color: #dfffff
 	margin: 10px 10px
 	position: relative
 	display: flex
 	justify-content: center
 	align-items: center
 	min-width: 150px
-	
-	&.gold
-		background-color: #ffd357
-
-	&.green
-		background-color: #84bb47
-	&.blue
-		background-color: #64d6ac
-	&.red
-		background-color: #f06c6c
+	border-radius: 6px
+	p
+		margin: 0
+		padding: 0
 	.close
 		position: absolute
 		background: none
 		border: none
 		right: 1px
-		top: 1px
-		color: white
+		top: 2px
+		color: black
+		box-shadow: none
+		text-shadow: none
 		padding: 0
 		width: 20px
-	i
+		height: 20px
+		opacity: 1
+		// background-image: url(../img/x.png)
+		// background-size: 14px 14px
+		// background-position: center center
+		// background-repeat: no-repeat
+	.editNote
 		position: absolute
-		bottom: 1px
-		right: 1px
+		right: 2px
+		bottom: 2px
+		width: 20px
+		height: 20px
+		text-align: center
+		&:hover
+			cursor: pointer
+	.moveZametka
+		position: absolute
+		left: 5px
+		top: 5px
+		bottom: 0px
+		right: 0px
+		width: 20px
+		height: 20px
+		box-shadow: none
+		text-shadow: none
+		&:hover
+			cursor: pointer
+#editArea
+	width: 100%
+
+	padding: 20px 30px
+	font-size: 20px
+.gold
+	background-color: #ffd357
+
+.green
+	background-color: #84bb47
+.blue
+	background-color: #64d6ac
+.red
+	background-color: #f06c6c
 
 
 @import "media" // Всегда в конце

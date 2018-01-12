@@ -4,7 +4,10 @@ var App = (function () {
 			Colors.init();	
 			AddNote.init();
 			RemoveNote.init();
-			Notes.init();	
+			EditNote.init();
+			SaveNote.init();
+			Move.init();
+			Notes.init();
 		}
 	}
 }())

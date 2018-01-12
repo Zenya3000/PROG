@@ -5,7 +5,7 @@ var RemoveNote = (function(){
 		b_close: ".close"
 	}
 	return {
-		init: function(){
+		click: function(){
 			$(document).on('click', '.close', function(){
 				
 				var number = $(this).attr('data-number');
@@ -17,6 +17,10 @@ var RemoveNote = (function(){
 					$(window).trigger("toRemove", toRemove);
 				}
 			})
+		},
+		init: function(){
+			this.click();
+
 		}
 	}
 }());
