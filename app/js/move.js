@@ -16,7 +16,7 @@ var Move = ( function() {
 						var obj = $(m.zametka+'[data-number="'+id+'"]');
 
 						var parent = this.parentNode;
-						var child = this;
+						var child = this; //???
 						var coords = getCoords(parent);
 
 						var shiftX = e.pageX - coords.left;

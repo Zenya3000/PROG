@@ -488,4 +488,6 @@ for (var i = 0; i < main.length; i++) {
 
 	// } for
 
+//lesson 7
+
 
