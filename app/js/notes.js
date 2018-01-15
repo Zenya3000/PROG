@@ -21,7 +21,10 @@ var Notes = (function () {
 			
 			$(window).on("addNote", function(event, note){
 				$(n.container).append('<div class="'+ n.zametka +' '+ note.color +'" data-color="'+note.color+'" data-number="'+note.number+'"><button class="close" data-number="'+note.number+'"><i class="fa fa-times" aria-hidden="true"></i></button>' + '<p class="text_zametka">' + z_split(note.split_text)+ '</p>' + ' <i class="fa fa-pencil editNote" data-number="'+note.number+'" aria-hidden="true"></i> <i class="fa fa-arrows-alt moveZametka" data-number="'+note.number+'" aria-hidden="true"></i> </div>');
+				
+
 			});
+			
 		},
 		remove: function(){
 			$(window).on("toRemove", function(event, toRemove){
@@ -48,18 +51,16 @@ var Notes = (function () {
 		save: function(){
 			$(window).on("saveEdit", function(event, saveData){
 				var newItem = $(n.classZametka+'['+ n.number +'="'+saveData.id+'"]');
-				console.log(saveData.text);
 				$(newItem).find('.text_zametka').html("");
 				for (var i = 0; i < saveData.text.length; i++) {
 					
 					$(newItem).find('.text_zametka').append(saveData.text[i] + '<br>');
 				}
 				$('#myModal').modal('toggle');
-
 			})
 		},
 		move: function(){
-			console.log('haha');
+			
 		},
 		init: function(){
 			this.render();
