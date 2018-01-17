@@ -24,6 +24,7 @@ var EditNote = ( function() {
 				if(id){
 					var color = $(e.item+'['+e.data +'=' + '"'+ id +'"'+']').attr(e.color);
 					var text = $(this).parent('.zametka').find('.text_zametka').html();
+					console.log(text);
 					$('#myModal').modal('show');
 					$(e.area).html("");
 					var editItem = {

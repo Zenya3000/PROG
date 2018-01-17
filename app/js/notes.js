@@ -33,7 +33,7 @@ var Notes = (function () {
 		},
 		edit: function(){
 			$(window).on("editNote", function(event, editItem){
-				// $(n.editArea).html("");
+				
 				$(n.editArea).val("");
 				$(n.editArea).removeClass();
 				var text = editItem.text;
@@ -41,15 +41,19 @@ var Notes = (function () {
 				console.log(n_text);
 				// var cont = "";
 				// var cont2 = "";
-				$(n.editArea).val(function(){
-					var value = n_text.split('\n');
+				// $(n.editArea).val(function(){
+				// 	var value = text.split('\n');
 
-					return value
-				});
+				// 	return value
+				// });
 
-				for (var i = 0; i < n_text.length; i++) {
-					var test = n_text[i];
-					console.log(test);
+
+
+
+				var textEdit = "";
+
+				for (var i = 0; i < n_text.length -1; i++) {
+					textEdit += n_text[i] + '\n';
 					// $(n.editArea).val(test);
 
 
@@ -67,6 +71,8 @@ var Notes = (function () {
 
 					// }
 				}
+				console.log('textEdit', textEdit);
+				$(n.editArea).val(textEdit);
 				$(n.editArea).addClass(editItem.color);
 				$(n.editArea).attr("data-number", editItem.number);
 			})
