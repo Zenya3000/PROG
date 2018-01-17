@@ -19,7 +19,7 @@ var SaveNote = ( function() {
 					id: id
 				}
 				$(window).trigger("saveEdit", saveData);
-
+				// $('#myModal').find('.modal-body').find(sn.textArea).val("");
 			});
 		},
 

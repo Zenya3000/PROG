@@ -33,16 +33,39 @@ var Notes = (function () {
 		},
 		edit: function(){
 			$(window).on("editNote", function(event, editItem){
-				$(n.editArea).html("");
+				// $(n.editArea).html("");
+				$(n.editArea).val("");
 				$(n.editArea).removeClass();
 				var text = editItem.text;
 				var n_text = text.split("<br>");
+				console.log(n_text);
+				// var cont = "";
+				// var cont2 = "";
+				$(n.editArea).val(function(){
+					var value = n_text.split('\n');
+
+					return value
+				});
+
 				for (var i = 0; i < n_text.length; i++) {
-					if(i == 0 && n_text[i] != ""){
-						$(editItem.area).append(n_text[0]);
-					} else if(i > 0 && n_text[i] != ""){
-						$(editItem.area).append('\n' + n_text[i]);
-					}
+					var test = n_text[i];
+					console.log(test);
+					// $(n.editArea).val(test);
+
+
+					
+					// if(i == 0 && n_text[i] != ""){
+					// 	$(n.editArea).val(n_text[i]);
+					// 	cont2 = $(n.editArea).val(n_text[i]);
+					// 	cont = $().text(cont2);
+						
+					// } else if(i > 0 && n_text[i] != ""){
+					// 	console.log(cont.innerHTML);
+					// 	$(n.editArea).val(cont.innerHTML +'\n' + n_text[i]);
+					// 	$(n.editArea).html(cont.innerHTML +'\n' + n_text[i]);
+					// 	cont += $(n.editArea).text(cont.innerHTML);
+
+					// }
 				}
 				$(n.editArea).addClass(editItem.color);
 				$(n.editArea).attr("data-number", editItem.number);
@@ -57,6 +80,7 @@ var Notes = (function () {
 					$(newItem).find('.text_zametka').append(saveData.text[i] + '<br>');
 				}
 				$('#myModal').modal('toggle');
+				// $('#myModal').find('.modal-body').find(n.editArea).html("");
 			})
 		},
 		move: function(){

@@ -16,14 +16,14 @@ var Move = ( function() {
 						var obj = $(m.zametka+'[data-number="'+id+'"]');
 
 						var parent = this.parentNode;
-						var child = this;
 						var coords = getCoords(parent);
-
 						var shiftX = e.pageX - coords.left;
 						var shiftY = e.pageY - coords.top;
-
 						parent.style.position = 'absolute';
+						parent.style.height = 'auto';
+
 						$(m.mainPlace).append(parent);
+						removeSelect();
 						moveAt(e);
 
 						parent.style.zIndex = 1000;
@@ -42,16 +42,19 @@ var Move = ( function() {
 
 					})
 
-						m.move_z.ondragstart = function() {
-							return false;
-						};
-					
+					m.move_z.ondragstart = function() {
+						return false;
+					};
+					function removeSelect() { //функция - убрать стандартное выделение
+					    var b =document.body; //по всему документу
+					    b.style.webkitUserSelect = b.style.mozUserSelect = b.style.msUserSelect = 'none'; //добавляем свойство CSS - запретить выделение
+					}
 					function getCoords(elem) {   
-						var box = elem.getBoundingClientRect();
-
+						position = $(elem).position();
 						return {
-							top: box.top + pageYOffset,
-							left: box.left + pageXOffset
+							top:  position.top,
+							left:  position.left,
+
 							
 						};
 					}
