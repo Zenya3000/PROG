@@ -498,6 +498,11 @@ $.ajax({
 		for (var i = 0; i < data.length; i++) {
 			var item = '<tr><td class="name" data-number="'+data[i].id+'">'+ data[i].name +'</td><td>'+ data[i].email +'</td><td><button data-number="'+ data[i].id +'" class="show_message btn btn-primary">show messages</button></td><td><button data-number="'+ data[i].id +'" class="send_message btn btn-success">send messages</button></td></tr>';	
 			$('#left_side').append(item);
+			$('.send_message').attr('disabled', true);
+
+
+
+
 			// var name = data[i].name;
 			// var email = data[i].email;
 			// var id = data[i].id;
@@ -515,6 +520,11 @@ $.ajax({
 $(document).on('click', '.show_message', function(){
 	$('.selected').removeClass('selected');
 	var id = $(this).attr('data-number');
+	$('.send_message').attr('disabled', true);
+	var send_m = $('.send_message[data-number="'+id+'"]');
+	$(send_m).attr('disabled', false);
+
+	
 	var name = $('.name[data-number="'+id+'"]').text();
 	$(this).parent().parent().addClass('selected');
 	function isVisible(times){
@@ -563,7 +573,7 @@ $(document).on('click', '.send_message', function(){
     	success: function(data){
 				
 				var item_post = '<tr class="item"><td><span>'+m_send+'</span></td></tr>';
-				
+				console.log(data);
     			$('#messages').append(item_post);
 
     		// 	$('.item').each(function(i){
