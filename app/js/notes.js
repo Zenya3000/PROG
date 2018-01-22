@@ -38,40 +38,12 @@ var Notes = (function () {
 				$(n.editArea).removeClass();
 				var text = editItem.text;
 				var n_text = text.split("<br>");
-				console.log(n_text);
-				// var cont = "";
-				// var cont2 = "";
-				// $(n.editArea).val(function(){
-				// 	var value = text.split('\n');
-
-				// 	return value
-				// });
-
-
-
-
 				var textEdit = "";
 
 				for (var i = 0; i < n_text.length -1; i++) {
 					textEdit += n_text[i] + '\n';
-					// $(n.editArea).val(test);
-
-
-					
-					// if(i == 0 && n_text[i] != ""){
-					// 	$(n.editArea).val(n_text[i]);
-					// 	cont2 = $(n.editArea).val(n_text[i]);
-					// 	cont = $().text(cont2);
-						
-					// } else if(i > 0 && n_text[i] != ""){
-					// 	console.log(cont.innerHTML);
-					// 	$(n.editArea).val(cont.innerHTML +'\n' + n_text[i]);
-					// 	$(n.editArea).html(cont.innerHTML +'\n' + n_text[i]);
-					// 	cont += $(n.editArea).text(cont.innerHTML);
-
-					// }
 				}
-				console.log('textEdit', textEdit);
+
 				$(n.editArea).val(textEdit);
 				$(n.editArea).addClass(editItem.color);
 				$(n.editArea).attr("data-number", editItem.number);
@@ -82,11 +54,10 @@ var Notes = (function () {
 				var newItem = $(n.classZametka+'['+ n.number +'="'+saveData.id+'"]');
 				$(newItem).find('.text_zametka').html("");
 				for (var i = 0; i < saveData.text.length; i++) {
-					
 					$(newItem).find('.text_zametka').append(saveData.text[i] + '<br>');
 				}
 				$('#myModal').modal('toggle');
-				// $('#myModal').find('.modal-body').find(n.editArea).html("");
+
 			})
 		},
 		move: function(){

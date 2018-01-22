@@ -487,3 +487,99 @@ for (var i = 0; i < main.length; i++) {
 
 
 	// } for
+
+
+//get users ( left table )
+var root = 'https://jsonplaceholder.typicode.com';
+$.ajax({
+	url: root +'/users',
+	method: 'GET',
+	success: function(data){
+		for (var i = 0; i < data.length; i++) {
+			var item = '<tr><td class="name" data-number="'+data[i].id+'">'+ data[i].name +'</td><td>'+ data[i].email +'</td><td><button data-number="'+ data[i].id +'" class="show_message btn btn-primary">show messages</button></td><td><button data-number="'+ data[i].id +'" class="send_message btn btn-success">send messages</button></td></tr>';	
+			$('#left_side').append(item);
+			// var name = data[i].name;
+			// var email = data[i].email;
+			// var id = data[i].id;
+			// $('#left_side').append(`
+			// 		<tr>
+			// 			<td>${name}</td>
+			// 			<td>${email}</td>
+			// 			<td><button data-number="${id}">all messages</button></td>
+			// 		</tr>
+			// `);
+		}
+	}
+})
+// event on click ( right table)
+$(document).on('click', '.show_message', function(){
+	$('.selected').removeClass('selected');
+	var id = $(this).attr('data-number');
+	var name = $('.name[data-number="'+id+'"]').text();
+	$(this).parent().parent().addClass('selected');
+	function isVisible(times){
+		$('.item').each(function(i){
+			setTimeout(function(){
+				$('.item').eq(i).fadeIn(300).addClass('isVisible');
+			}, 300 * i);
+		});
+		setTimeout(function(times){
+			$('.show_message').attr('disabled', false);	
+			$('.show_message').removeClass('disabled');	
+		}, 300 * times);
+	}
+
+	$.ajax({
+		url: root+'/posts?userId='+id,
+		method: 'get',
+		beforeSend: function(){
+			$('.show_message[data-number='+ id +']').addClass('disabled');
+			$('.show_message').attr('disabled', true);
+		},
+		success: function(data){
+				var item = item + '<tr><td>User: <strong>'+ name +'</strong></td></tr>';
+				for (var i = 0; i < data.length; i++) {
+						var item = item + '<tr class="item"><td><span>'+data[i].body+'</span></td></tr>';
+				}
+				$('#messages').html('');
+				$('#messages').append(item);
+				isVisible(data.length);
+		}
+	});
+});
+
+$(document).on('click', '.send_message', function(){
+	var id = $(this).attr('data-number');
+	var m_send = $('#send_messege').val();
+	
+	$.ajax({
+		url: root+'/posts',
+		method: 'POST',
+		body: {
+			body: m_send,
+			userId: id,
+			title: 'bla bla'
+		},
+    	success: function(data){
+				
+				var item_post = '<tr class="item"><td><span>'+m_send+'</span></td></tr>';
+				
+    			$('#messages').append(item_post);
+
+    		// 	$('.item').each(function(i){
+    		// 		if($('.item').hasClass('isVisible')){
+						// console.log('ok');
+    		// 		} else {
+    		// 			$('.item').addClass('isVisible');
+    		// 		}
+    		// 	}
+    			$('.item').fadeIn(300).addClass('isVisible');
+    			console.log('success');
+
+    	}
+	}).then(function(data){
+		console.log(data);
+	});
+
+
+});
